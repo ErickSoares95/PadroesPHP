@@ -1,0 +1,17 @@
+{
+    "name": "erik.lira/padrao",
+    "description": "aprender padroes de projeto",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "ErickLira\\Padrao\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Erick de Lira Soares",
+            "email": "ericklira99@gmail.com"
+        }
+    ],
+    "require": {}
+}
