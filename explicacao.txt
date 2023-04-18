@@ -1,1 +1,2 @@
 Strategy: Ação que depende de um parametro, passamos esse parametro para uma nova classe e ao invés de ter varios if para verificar o valor do parametro é passado a classe que tem a estrategia de implementação
+Chain of Responsability: é Implementado quando há uma cadeia de ifs que vai dependender de algum valor para ser executado uma certa ação.
