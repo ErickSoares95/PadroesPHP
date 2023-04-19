@@ -2,10 +2,18 @@
 
 namespace ErickLira\Padrao;
 
+use ErickLira\Padrao\AcoesAoGerarPedido\IAcaoAposGerarPedido;
+
 class GerarPedidoHandler
 {
+    private array $acoesAposGerarPedido = [];
     public function __construct(/* pedidoRepository, MailService */)
     {
+    }
+
+    public function adicionarAcaoAoGerarPedido(IAcaoAposGerarPedido $acao)
+    {
+        $this->acoesAposGerarPedido[] = $acao;
     }
 
     public function execute(GerarPedido $gerarPedido)
@@ -19,9 +27,9 @@ class GerarPedidoHandler
         $pedido->nomeCliente = $gerarPedido->getNomeCliente();
         $pedido->orcamento = $orcamento;
 
-        //
-        echo "Cria pedido no banco de dados " . PHP_EOL;
-        echo "Envia e-mail para cliente " . PHP_EOL;
+        foreach ($this->acoesAposGerarPedido as $acao) {
+            $acao->executaAcao($pedido);
+        }
     }
 }
 
